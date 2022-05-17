@@ -1,0 +1,26 @@
+FUNCTION dot_product(vec1,vec2:ARRAY_OF integer[]) : integer
+VAR
+    sum,i:integer;
+BEGIN
+    FOR i FROM 0 TO 3 STEP step 1 DO
+        sum:=sum+(vec1[i]*vec2[i]);
+    END_FOR
+    
+    RETURN sum ;
+END
+ALGORITHM Dot product
+VAR
+    sum:integer;
+    vec1: ARRAY_OF integer[3]={1,2,3};
+    vec2 : ARRAY_OF integer[3]={5,6,7};
+BEGIN
+    sum:=dot_product(vec1,vec2);
+    IF (vec1.length=vec2.length) THEN
+        IF (sum=0) THEN
+            write("the two vectors are ortogonal");
+        ELSE
+            write("the two vectors are not ortogonal");
+        END_IF
+    ELSE
+        write("the two vectors should have the same length");
+END
